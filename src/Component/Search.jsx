@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import medical_records from "../medicalrecords";
 
-function Search({ setId, id }) {
+function Search({  setId, id }) {
   const [selected, setSelected] = useState("0");
 
   const handleChange = (e) => {
     setSelected(e.target.value);
   };
-
+  
   const handleShow = () => {
     if (selected === "0") {
       alert("Please select a patient name");
@@ -21,7 +21,7 @@ function Search({ setId, id }) {
       <div className="select">
         <select
           data-testid="patient-name"
-          value={selected}
+          defaultValue="0"
           onChange={handleChange}
         >
           <option value="0" disabled>
@@ -35,7 +35,7 @@ function Search({ setId, id }) {
         </select>
       </div>
 
-      <button type="button" data-testid="show" onClick={handleShow}>
+      <button type="submit" data-testid="show" onClick={handleShow}>
         Show
       </button>
     </div>
