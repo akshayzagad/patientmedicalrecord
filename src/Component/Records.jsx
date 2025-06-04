@@ -12,9 +12,11 @@ function Records({ setId, selectedId }) {
 
   console.log(patient);
   
-  const record = patient.data[0];
+  // const docters = patient.data.map((record) => record.doctor.name);
 
-  console.log(record);
+  // const record = patient.data[0];
+
+  // console.log(docters);
   
 
   return (
@@ -44,15 +46,17 @@ function Records({ setId, selectedId }) {
             <th>Doctor</th>
           </tr>
         </thead>
-        <tbody id="table-body" data-testid="patient-table">
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
+        {patient.data.map((record) => (
+          <tbody id="table-body" data-testid="patient-table">
+            <tr>
+              <td>{record.timestamp}</td>
+              <td>{record.diagnosis.name}</td>
+              <td>{record.userDob}</td>
+              <td>{record.meta.weight}</td>
+              <td>{record.doctor.name}</td>
+            </tr>
+          </tbody>
+        ))}
       </table>
     </div>
   );
